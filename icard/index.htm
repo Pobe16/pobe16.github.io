@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="styl.css" />
+	<title>Flashcards alpha</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+	<!-- <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script> -->
+	<script src="skrypty.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="transparent">
+	
+	<header>
+		<h1 id="name">Flashcards</h1>
+		<p id="name_desc">Locally stored flashcards, ver 0.1</p>
+	</header>
+	
+	<div class="clearfix"></div>
+	
+	<div class="canvas">
+		
+		<!-- The cards go here :-) -->
+		<div class="addcard">
+			<div class="plus">+</div>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+	
+	<footer id="site_footer">
+		<p>Background &copy; <a href="http://blog.argasinski.eu" target="_blank">Jakub Argasiński</a> - <a href="https://www.facebook.com/SprayPrayAndRunForLife">Spray, pray and run for life</a>.</p>
+	</footer>
+</div>
+<div class="toplayer">
+	<div class="insides">
+		<header>
+			<h1 id="addeditcard">Add a flashcard:</h1>
+		</header>
+		<form>
+		<input type="hidden" value="new" id="flashid">
+		<textarea placeholder="Front..." id="frontcard"></textarea>
+		<textarea placeholder="Back..." id="backcard"></textarea>
+		<br />
+		<button type="button" id="savecard">✓Save</button>
+		</form>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,115 @@
+body {
+	background-color: #fff;
+	background: url(img/pszenica.jpg) no-repeat fixed;
+	background-size: cover;
+	padding: 0;
+	font-family: Helvetica;
+	font-size: 12px;
+}
+
+div.transparent{
+	background-color: rgb(255, 255, 255); /* Fall-back for browsers that don't support rgba */
+    background-color: rgba(255, 255, 255, 0.8);
+	margin: 50px auto;
+	max-width: 90%;
+	border-radius: 20px;
+	padding: 20px;
+}
+
+h1#name{
+	margin: -0.2em 0 0 0;
+	font-size: 4em;
+}
+
+p#name_desc{
+	margin-top: 0;
+	font-size: 2em;
+}
+
+.viewport{
+	width: 30em;;
+	height: 30em;;
+	margin: 0.5em 0.5em;
+	float: left;
+	-webkit-perspective: 1000px;
+	-moz-perspective: 1000px;
+	-o-perspective: 1000px;
+	perspective: 1000px;
+}
+
+.rectangle_over{
+	width: 100%;
+	height: 100%;
+	-webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-o-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+
+.flipped{
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	-o-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+
+.rectangle_over>div{
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-o-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+div.jade{background-color: #096;}
+div.cerulean{background-color: #069;}
+div.purple{background-color: #609;}
+
+#watch_next .top_side{
+	background: url(img/watchnext.jpg) no-repeat;
+	background-size: cover;
+}
+
+#flash_card .top_side{
+	background: url(img/flashcard.jpg) no-repeat;
+	background-size: cover;
+}
+
+#hug_me .top_side{
+	background: url(img/hug.jpg) no-repeat;
+	background-size: cover;
+}
+
+.rectangle_over .bottom_side{
+	position: relative;
+	top: -30em;;
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	-o-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+
+.rectangle_over>div>p{
+	font-size: 26px;
+	margin: 0;
+	padding: 0.25em;
+}
+
+.rectangle_over>div>p>a{
+	color: black;
+	text-decoration: none;
+}
+
+.clearfix{
+   clear: both;
+}
+
+#site_footer>p{
+	margin-top: 2em;
+}
