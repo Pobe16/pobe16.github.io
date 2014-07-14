@@ -86,6 +86,11 @@ div.purple{background-color: #609;}
 	background-size: cover;
 }
 
+#mlukasik .top_side{
+	background: url(img/mlukasik.jpg) no-repeat;
+	background-size: cover;
+}
+
 .rectangle_over .bottom_side{
 	position: relative;
 	top: -30em;;
