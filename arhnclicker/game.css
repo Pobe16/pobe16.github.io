@@ -1,0 +1,183 @@
+@import url(http://fonts.googleapis.com/css?family=Oswald&subset=latin,latin-ext);
+
+html, body {
+	margin: 0;
+	overflow-x: hidden;
+	font-family: 'Oswald', sans-serif;
+	font-size: 23px;
+	height: 100%;		
+}
+
+.small-font {
+	font-size: 12px;
+}
+
+.big-font {
+	font-size: 36px;
+}
+
+.left-section {
+	min-width: 400px;
+	float: left;
+	height: 100%;
+	background: #fff;
+	overflow: scroll;
+	border: 1px dotted #000;
+}
+
+.left-section>div {
+	text-align: center;
+}
+
+.big-dinar {
+	transition: 0.1s;
+	margin: 16px auto;
+	display: block;
+	width: 248px;
+	cursor: pointer;
+}
+
+.big-dinar:hover{  
+	margin: 12px auto;
+	width: 256px;
+}
+
+.big-dinar:active {
+	margin: 14px auto;
+	width: 252px;
+}
+
+.middle-section {
+	overflow: hidden;
+	float: left;
+	width: calc(100% - 400px - 300px);
+	height: 100%;
+
+}
+
+.shoutbox {
+	border: none;
+	height: inherit;
+	width: 100%;		
+}
+
+.right-section {
+	position: absolute;
+	right: 0px;
+	min-width: 300px;
+	overflow: scroll;
+	height: 100%;	
+	background: #fff;
+}
+
+#buildings {
+	cursor: pointer;
+}
+
+.building {
+	padding: 0;
+	margin: 0;
+	height: 66px;
+	width: 100%;
+	overflow: hidden;
+	transition: 0.1s;
+}
+
+.building-body {
+	transition: 0.3s;
+	border: 1px dotted #aaa;
+}
+
+.building:hover {
+	height: 84px;
+}
+
+.building:hover .building-body {
+	border: 1px dotted #000;
+}
+
+.building.unknown {
+	display: none;
+}
+
+.building.mystery {
+	opacity: 0.2;
+}
+
+.building.mystery:hover {
+	height: 66px;
+}
+
+.building.mystery .building-name {
+	display: none;
+}
+
+.building-name-placeholder {
+	display: none;
+}
+
+.mystery .building-name-placeholder {
+	display: block;
+}
+
+.building.no-money {
+	opacity: 0.5;
+}
+
+.building-icon {
+	height: 64px;
+	width: 64px;
+	float: left;
+}
+
+.building-middle-section {
+	float:left;
+}
+
+.building-price::before {
+	content: '';
+	display: block;
+	background: url(img/minidinary.png);
+	width: 16px;
+	height: 16px;
+	float: left;
+}
+
+.building-count {
+	position: absolute;
+	right: 5px;
+	color: #555;
+}
+
+.unknown .building-price,.mystery .building-price,.no-money .building-price {
+	text-decoration: line-through;
+}
+
+.building-options {
+	height: 20px;
+	width: 100%;
+}
+
+.building-options>div {
+	float: left;
+	width: 100px;
+	height: 20px;
+	text-align: center;
+	color: #555;
+}
+
+.building-options>div:hover {
+	color: #000;
+}
+
+#building-0 .building-icon {
+	background: url(img/icon.png);
+}
+
+#building-0.mystery .building-icon {
+	background: url(img/shadow.png);
+}
+
+.clearfix {
+	clear: both;
+}

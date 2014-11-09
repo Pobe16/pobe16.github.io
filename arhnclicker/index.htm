@@ -1,0 +1,219 @@
+<!doctype html>
+<html>
+	<head>
+		<title id="browser-title">ARHN Clicker</title>
+		<link rel="stylesheet" href="game.css" />
+		<meta charset="utf-8" />
+		<script src="scripts/background.js"></script>
+		<script src="scripts/info.js"></script>
+		<script src="scripts/actions.js"></script>
+	</head>
+	<body>
+		<section class="left-section">
+			<div class="dinar-title" title="Owszem, dokładnie tak wygląda praca Dark Archona.">Symulator Archona</div>
+			<div class="counter big-font">
+				<span id="dinar-count"></span>
+				<span id="count-description"></span>
+			</div>
+			<div class="dinar-per-second small-font">
+				<span>na sekundę:</span>
+				<span id="dps"></span>
+			</div>
+			<img src="img/coin.png" id="big-dinar" class="big-dinar"/>
+		</section>
+		<section class="middle-section">
+<!-- 		<iframe src="http://arhn.eu/shoutbox" class="shoutbox" scrolling="yes"></iframe> -->
+		</section>
+		<section class="right-section">
+				<div class="shop-desc">
+					Sklepik
+				</div>
+			<div id="upgrades">
+
+			</div>
+			<div id="buildings">
+				<div id="building-0" class="building">
+					<div class="building-body" id="buy-0">
+						<div class="building-icon"></div>
+						<div class="building-middle-section">
+							<div class="building-name-placeholder">???</div>
+							<div class="building-name" id="building-name-0">Pudełko z grą</div>
+							<div class="building-price small-font" id="building-price-0">15</div>
+						</div>
+						<div class="building-count big-font" id="building-count-0"></div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="building-options small-font">
+						<div class="buy-10" id="buy-10-0">Kup 10</div>
+						<div class="sell" id="sell-0">Sprzedaj</div>
+						<div class="sell-all" id="sell-all-0">Sprzedaj wszystkie</div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+				<div id="building-1" class="building">
+					<div class="building-body" id="buy-1">
+						<div class="building-icon"></div>
+						<div class="building-middle-section">
+							<div class="building-name-placeholder">???</div>
+							<div class="building-name" id="building-name-1"> Wątek na forum</div>
+							<div class="building-price small-font" id="building-price-1">100</div>
+						</div>
+						<div class="building-count big-font" id="building-count-1"></div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="building-options small-font">
+						<div class="buy-10" id="buy-10-1">Kup 10</div>
+						<div class="sell" id="sell-1">Sprzedaj</div>
+						<div class="sell-all" id="sell-all-1">Sprzedaj wszystkie</div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+				<div id="building-2" class="building">
+					<div class="building-body" id="buy-2">
+						<div class="building-icon"></div>
+						<div class="building-middle-section">
+							<div class="building-name-placeholder">???</div>
+							<div class="building-name" id="building-name-2">Kanał TeamSpeaka</div>
+							<div class="building-price small-font" id="building-price-2">500</div>
+						</div>
+						<div class="building-count big-font" id="building-count-2"></div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="building-options small-font">
+						<div class="buy-10" id="buy-10-2">Kup 10</div>
+						<div class="sell" id="sell-2">Sprzedaj</div>
+						<div class="sell-all" id="sell-all-2">Sprzedaj wszystkie</div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+				<div id="building-3" class="building">
+					<div class="building-body" id="buy-3">
+						<div class="building-icon"></div>
+						<div class="building-middle-section">
+							<div class="building-name-placeholder">???</div>
+							<div class="building-name" id="building-name-3">Rozpakowanie</div>
+							<div class="building-price small-font" id="building-price-3">3000</div>
+						</div>
+						<div class="building-count big-font" id="building-count-3"></div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="building-options small-font">
+						<div class="buy-10" id="buy-10-3">Kup 10</div>
+						<div class="sell" id="sell-3">Sprzedaj</div>
+						<div class="sell-all" id="sell-all-3">Sprzedaj wszystkie</div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+				<div id="building-4" class="building">
+					<div class="building-body" id="buy-4">
+						<div class="building-icon"></div>
+						<div class="building-middle-section">
+							<div class="building-name-placeholder">???</div>
+							<div class="building-name" id="building-name-4">Recenzja</div>
+							<div class="building-price small-font" id="building-price-4">10000</div>
+						</div>
+						<div class="building-count big-font" id="building-count-4"></div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="building-options small-font">
+						<div class="buy-10" id="buy-10-4">Kup 10</div>
+						<div class="sell" id="sell-4">Sprzedaj</div>
+						<div class="sell-all" id="sell-all-4">Sprzedaj wszystkie</div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+				<div id="building-5" class="building">
+					<div class="building-body" id="buy-5">
+						<div class="building-icon"></div>
+						<div class="building-middle-section">
+							<div class="building-name-placeholder">???</div>
+							<div class="building-name" id="building-name-5">Livestream</div>
+							<div class="building-price small-font" id="building-price-5">40000</div>
+						</div>
+						<div class="building-count big-font" id="building-count-5"></div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="building-options small-font">
+						<div class="buy-10" id="buy-10-5">Kup 10</div>
+						<div class="sell" id="sell-5">Sprzedaj</div>
+						<div class="sell-all" id="sell-all-5">Sprzedaj wszystkie</div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+				<div id="building-6" class="building">
+					<div class="building-body" id="buy-6">
+						<div class="building-icon"></div>
+						<div class="building-middle-section">
+							<div class="building-name-placeholder">???</div>
+							<div class="building-name" id="building-name-6">… w pigułce</div>
+							<div class="building-price small-font" id="building-price-6">200000</div>
+						</div>
+						<div class="building-count big-font" id="building-count-6"></div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="building-options small-font">
+						<div class="buy-10" id="buy-10-6">Kup 10</div>
+						<div class="sell" id="sell-6">Sprzedaj</div>
+						<div class="sell-all" id="sell-all-6">Sprzedaj wszystkie</div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+				<div id="building-7" class="building">
+					<div class="building-body" id="buy-7">
+						<div class="building-icon"></div>
+						<div class="building-middle-section">
+							<div class="building-name-placeholder">???</div>
+							<div class="building-name" id="building-name-7">Time Warp</div>
+							<div class="building-price small-font" id="building-price-7">1666666</div>
+						</div>
+						<div class="building-count big-font" id="building-count-7"></div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="building-options small-font">
+						<div class="buy-10" id="buy-10-7">Kup 10</div>
+						<div class="sell" id="sell-7">Sprzedaj</div>
+						<div class="sell-all" id="sell-all-7">Sprzedaj wszystkie</div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+				<div id="building-8" class="building">
+					<div class="building-body" id="buy-8">
+						<div class="building-icon"></div>
+						<div class="building-middle-section">
+							<div class="building-name-placeholder">???</div>
+							<div class="building-name" id="building-name-8">System Error</div>
+							<div class="building-price small-font" id="building-price-8">123456789</div>
+						</div>
+						<div class="building-count big-font" id="building-count-8"></div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="building-options small-font">
+						<div class="buy-10" id="buy-10-8">Kup 10</div>
+						<div class="sell" id="sell-8">Sprzedaj</div>
+						<div class="sell-all" id="sell-all-8">Sprzedaj wszystkie</div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+				<div id="building-9" class="building">
+					<div class="building-body" id="buy-9">
+						<div class="building-icon"></div>
+						<div class="building-middle-section">
+							<div class="building-name-placeholder">???</div>
+							<div class="building-name" id="building-name-9">Gramytatywnie</div>
+							<div class="building-price small-font" id="building-price-9">4000000000</div>
+						</div>
+						<div class="building-count big-font" id="building-count-9"></div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="building-options small-font">
+						<div class="buy-10" id="buy-10-9">Kup 10</div>
+						<div class="sell" id="sell-9">Sprzedaj</div>
+						<div class="sell-all" id="sell-all-9">Sprzedaj wszystkie</div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<div class="clearfix"></div>
+	</body>
+</html>
