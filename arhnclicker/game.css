@@ -21,13 +21,12 @@ html, body {
 	float: left;
 	height: 100%;
 	background: #fff;
-	overflow: scroll;
+	overflow: hidden;
+	text-align: center;
+	box-sizing: border-box;
 	border: 1px dotted #000;
 }
 
-.left-section>div {
-	text-align: center;
-}
 
 .big-dinar {
 	transition: 0.1s;
@@ -47,18 +46,18 @@ html, body {
 	width: 252px;
 }
 
+.shoutbox {
+	border: none;
+	width: 100%;
+	height: calc(100% - 390px);
+}
+
 .middle-section {
 	overflow: hidden;
 	float: left;
 	width: calc(100% - 400px - 300px);
 	height: 100%;
 
-}
-
-.shoutbox {
-	border: none;
-	height: inherit;
-	width: 100%;		
 }
 
 .right-section {
