@@ -32,8 +32,15 @@ var	a = {
 			html.className = clas;	
 		}
 		return html;
-	}
-	}, 
+	},
+	handle_visibility_change: function () {
+  		if (document.hidden) {
+  			clicker.moved_to_background();
+  		} else  {
+  			clicker.moved_to_front();
+  		}
+}
+}, 
 
 	clicker = {
 	loops: 0,
@@ -56,16 +63,20 @@ var	a = {
 
 		place.textContent = dinary;
 		
-		if (dinary === 1) {
-			desc.textContent = 'Đinar';
-		} else if ( ( dinary % 100 > 10 ) && ( dinary % 100 < 15 ) ) {
-			desc.textContent = 'Đinarów';
-		} else {
-			if ( ( dinary % 10 > 1 ) && ( dinary % 10 < 5 ) ) {
-				desc.textContent = 'Đinary';
-			} else {
+		if (dinary < 1000) {
+			if (dinary === 1) {
+				desc.textContent = 'Đinar';
+			} else if ( ( dinary % 100 > 10 ) && ( dinary % 100 < 15 ) ) {
 				desc.textContent = 'Đinarów';
+			} else {
+				if ( ( dinary % 10 > 1 ) && ( dinary % 10 < 5 ) ) {
+					desc.textContent = 'Đinary';
+				} else {
+					desc.textContent = 'Đinarów';
+				}
 			}
+		} else {
+			desc.textContent = 'Đinarów';
 		}
 		dps.textContent = this.stats.dps;
 	},
@@ -192,11 +203,21 @@ var	a = {
 	the_main_loop: function() {
 		this.generate_dinary();
 		this.refresh_all();
-		this.loops++;
+		this.loops+= 30 / this.stats.fps;
 		this.check_loops();
-		window.setTimeout(function() {
+		this.timeoutID = window.setTimeout(function() {
 			clicker.the_main_loop();
 		}, 1000/this.stats.fps);
+	},
+
+	moved_to_background: function () {
+		this.stats.fps = 1;
+	},
+
+	moved_to_front: function () {
+		window.clearTimeout(this.timeoutID);
+		this.stats.fps = 30;
+		this.the_main_loop();
 	},
 
 	beginning : function(){
