@@ -53,7 +53,7 @@ html, body {
 }
 
 .middle-section {
-	overflow: hidden;
+	overflow: auto;
 	float: left;
 	width: calc(100% - 400px - 300px);
 	height: 100%;
@@ -64,7 +64,7 @@ html, body {
 	position: absolute;
 	right: 0px;
 	min-width: 300px;
-	overflow: scroll;
+	overflow: auto;
 	height: 100%;	
 	background: #fff;
 }
