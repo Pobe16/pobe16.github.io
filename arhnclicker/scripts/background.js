@@ -169,7 +169,7 @@ var	a = {
 			var building_dps = this.buildings[this.buildings.list[i]].base_dps;
 			new_dps += this.stats.buildings[i]*building_dps;
 		}
-		this.stats.dps = a.beautify(Math.round(new_dps*10)/10);
+		this.stats.dps = Math.round(new_dps*10)/10;
 
 	},
 
