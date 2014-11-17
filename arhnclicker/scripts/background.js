@@ -25,6 +25,34 @@ var	a = {
 		}
 	},
 
+	beautify: function (value) {
+		var words = {
+			3: '',
+			6: ' milionów',
+			9: ' miliardów',
+			12: ' bilionów',
+			15: ' biliardów',
+			18: ' trylionów',
+			21: ' tryliardów',
+			24: ' kwadrylionów',
+			27: ' kwadryliardów',
+			30: ' kwintylionów',
+			33: ' kwintyliardów'
+			},
+			counter = 1;
+
+		if ( value > 999999 ) {
+			do {
+				value = value / 1000;
+				counter++;
+			} 
+			while ( (value / 1000) > 999 );
+
+			value = Math.round(value) / 1000;
+		}
+		return value + words[counter * 3];
+	},
+
 	//shortcut for creating DOM elements with class
 	insert: function(tag, clas){
 		var html = document.createElement(tag);
@@ -33,13 +61,14 @@ var	a = {
 		}
 		return html;
 	},
+	
 	handle_visibility_change: function () {
   		if (document.hidden) {
   			clicker.moved_to_background();
   		} else  {
   			clicker.moved_to_front();
   		}
-}
+	}
 }, 
 
 	clicker = {
@@ -47,11 +76,15 @@ var	a = {
 	stats: {},
 
 	create_stats: function () {
-		if (a.ls_service('get') === 1) {
+		var game_state = a.ls_service('get');
+		if (game_state === 1) {
 			a.ls_service('set', this.zero_save);
 			this.stats = this.zero_save;
 		} else {
-			this.stats = a.ls_service('get');
+			if ( game_state.buildings.length < 11 ) {
+				game_state.buildings[10] = 0;
+			}
+			this.stats = game_state;
 		}
 	},
 
@@ -61,7 +94,7 @@ var	a = {
 			desc = a.gebi('count-description'),
 			dps = a.gebi('dps');
 
-		place.textContent = dinary;
+		place.textContent = a.beautify(dinary);
 		
 		if (dinary < 1000) {
 			if (dinary === 1) {
@@ -78,14 +111,14 @@ var	a = {
 		} else {
 			desc.textContent = 'Đinarów';
 		}
-		dps.textContent = this.stats.dps;
+		dps.textContent = a.beautify(this.stats.dps);
 	},
 
 	building_list_refresh: function () {
 		var bank = this.stats.dinary,
 			all = this.stats.all_made,
 			i = 0;
-		for (i; i<10; i++) {
+		for (i; i<11; i++) {
 			var b = this.buildings.list[i],
 				count = a.gebi('building-count-' + i),
 				how_many = this.stats.buildings[i],
@@ -93,7 +126,7 @@ var	a = {
 				price = a.gebi('building-price-'+i),
 				base_price = this.buildings[b].base_cost,
 				current_price = Math.round(this.buildings[b].base_cost * (Math.pow(1.15, how_many)));
-			price.textContent = Math.round(current_price);
+			price.textContent = a.beautify(Math.round(current_price));
 			
 			if (how_many === 0) {
 				count.textContent = ''; 
@@ -129,37 +162,58 @@ var	a = {
 		this.dinary_refresh();
 	},
 
+	refresh_dps: function () {
+		var new_dps = 0,
+			i = 0;
+		for (i; i<11; i++) {
+			var building_dps = this.buildings[this.buildings.list[i]].base_dps;
+			new_dps += this.stats.buildings[i]*building_dps;
+		}
+		this.stats.dps = a.beautify(Math.round(new_dps*10)/10);
+
+	},
+
 	add_events: function() {
 		var big_dinar = a.gebi('big-dinar'),
 			buy_buttons = a.gebcn('building-body'),
 			buy_10_buttons = a.gebcn('buy-10'),
 			sell_buttons = a.gebcn('sell'),
-			sell_all_buttons = a.gebcn('sell_all');
+			sell_all_buttons = a.gebcn('sell-all');
 
 		big_dinar.addEventListener('click', function() {
 			clicker.add_handmade_dinary();
 		});
 
 		buy_buttons.forEach(this.buy_building_event);
-		//buy_10_buttons.forEach(this.buy_10_building_event);
-		//sell_buttons.forEach(this.sell_building_event);
-		//sell_all_buttons.forEach(this.sell_all_building_event);
-	},
-
-	refresh_dps: function () {
-		var new_dps = 0,
-			i = 0;
-		for (i; i<10; i++) {
-			var building_dps = this.buildings[this.buildings.list[i]].base_dps;
-			new_dps += this.stats.buildings[i]*building_dps;
-		}
-		this.stats.dps = Math.round(new_dps*10)/10;
-
+		buy_10_buttons.forEach(this.buy_10_buildings_event);
+		sell_buttons.forEach(this.sell_building_event);
+		sell_all_buttons.forEach(this.sell_all_buildings_event);
 	},
 
 	buy_building_event: function(element, index) {
 		element.addEventListener('click', function () {
 			clicker.buy_building(index);
+			clicker.refresh_all();
+		});
+	},
+
+	buy_10_buildings_event: function(element, index) {
+		element.addEventListener('click', function () {
+			clicker.buy_10_buildings(index);
+			clicker.refresh_all();
+		});
+	},
+
+	sell_building_event: function(element, index) {
+		element.addEventListener('click', function () {
+			clicker.sell_building(index);
+			clicker.refresh_all();
+		});
+	},
+
+	sell_all_buildings_event: function(element, index) {
+		element.addEventListener('click', function () {
+			clicker.sell_all_buildings(index);
 			clicker.refresh_all();
 		});
 	},
@@ -173,7 +227,35 @@ var	a = {
 		} else {
 			return false;
 		}
-		
+	},
+
+	buy_10_buildings: function (id) {
+		var i = 10,
+			more = true;
+		while (more && i > 0) {
+			more = this.buy_building(id);
+			i--;
+		}
+	},
+
+	sell_building: function (id) {
+		if (this.stats.buildings[id] > 0) {
+			var money = (Math.round(this.buildings[this.buildings.list[id]].base_cost * Math.pow(1.15, this.stats.buildings[id])))/2;
+			this.stats.buildings[id]--;
+			this.stats.dinary += money;
+			return true;
+		} else {
+			return false;
+		}
+	},
+
+	sell_all_buildings: function (id) {
+		var i = this.stats.buildings[id],
+			more = true;
+		while (more && i > 0) {
+			more = this.sell_building(id);
+			i--;
+		}
 	},
 
 	add_handmade_dinary: function () {
