@@ -175,13 +175,18 @@ var	a = {
 
 	add_events: function() {
 		var big_dinar = a.gebi('big-dinar'),
+			save = a.gebi('save'),
 			buy_buttons = a.gebcn('building-body'),
 			buy_10_buttons = a.gebcn('buy-10'),
 			sell_buttons = a.gebcn('sell'),
 			sell_all_buttons = a.gebcn('sell-all');
 
-		big_dinar.addEventListener('click', function() {
+		big_dinar.addEventListener('click', function () {
 			clicker.add_handmade_dinary();
+		});
+
+		save.addEventListener('click', function () {
+			clicker.save_game();
 		});
 
 		buy_buttons.forEach(this.buy_building_event);
