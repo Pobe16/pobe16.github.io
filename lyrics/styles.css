@@ -1,0 +1,26 @@
+body{
+	margin: 0;
+}
+
+.content{
+	height: 100vh;
+	display: flex;
+}
+
+.polish{
+	flex: 1 1 75%;
+	overflow: scroll;
+	font-size: 48px;
+}
+
+.player{
+	flex: 0 0 25%;
+    height: 800px;
+    min-height: 250px;
+    max-height: 80vh;
+    margin-right: 20px;
+}
+
+.positioning{
+	height:100vh;
+}
