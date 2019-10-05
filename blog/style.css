@@ -1,0 +1,92 @@
+html {
+	background-color: #fff;
+	background: url(../img/pszenica.jpg) no-repeat fixed;
+	background-size: cover;
+	font-family: Helvetica;
+	font-size: 24px;
+}
+
+@media only screen and (max-width: 768px){
+	html{
+		font-size: 20px;
+	}
+}
+
+@media only screen and (max-width: 480px){
+	html{
+		font-size: 18px;
+	}
+}
+
+.site-container{
+	max-width: 50rem;
+	display: grid;
+	grid-template-columns: 3fr 1fr;
+	grid-template-rows: auto auto; 
+	grid-gap: 1rem;
+	margin: 1rem auto;
+}
+
+.site-container>header{
+	background-color: rgba(255, 255, 255, 0.8);
+	border-radius: .5rem
+}
+
+.site-container>header{
+	padding: 0 2rem;
+	grid-column: 1 / span 1;
+	grid-row:  1 / span 1;
+}
+
+.site-container>header>h1{
+	margin: 1rem 0 0 0;
+}
+
+.site-container>header>h4{
+	margin: .5rem 0 1rem; ;
+}
+
+.site-container>section{
+	background:none;
+	border-radius: 0;
+}
+
+section>article{
+	background-color: rgba(255, 255, 255, 0.8);
+	border-radius: .5rem;
+	padding: 1rem 2rem;
+	margin: 0 0 1rem 0;
+}
+
+section>article img{
+	float: left;
+	margin: .5rem;
+	max-width: 30%;
+	min-width: 6rem;
+}
+
+section>article>footer{
+	text-align: right;
+	font-size: .75rem;
+}
+
+.site-container>aside{
+	grid-column: 2 / span 1;
+	grid-row: 1 / span 2;
+	font-size: .75rem;
+}
+
+.site-container>aside>section{
+	background-color: rgba(255, 255, 255, 0.8);
+	border-radius: .5rem;
+	padding: 1rem;
+}
+
+.site-container>aside>section>img{
+	max-width: 100%;
+	border-radius: .5rem;
+}
+
+.site-container>aside>section>ul{
+	margin: .25rem 0 1rem 0;
+}
