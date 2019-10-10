@@ -61,7 +61,19 @@ section>article:last-of-type{
 	margin: 0;
 }
 
-section>article img{
+section>article>img{
+	max-width: 75%;
+	display: block;
+	margin: 0 auto;
+}
+
+section>article iframe{
+	max-width: 75%;
+	display: block;
+	margin: 0 auto;
+}
+
+section>article>p>img{
 	float: left;
 	margin: .5rem;
 	max-width: 30%;
