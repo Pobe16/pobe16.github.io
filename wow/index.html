@@ -14,7 +14,10 @@
     <div class="site-container">
         <header><h1>Thank you for registering!</h1></header>
         <script>
-            window.location.replace("wowwidget://authenticated")
+            var URLContext = window.location.href.split("?")[1]
+            if (URLContext) {
+                window.location.replace("wowwidget://authenticated?"+URLContext)
+            }
         </script>
     </div>
 </body>
